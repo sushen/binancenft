@@ -54,29 +54,29 @@ driver.find_element_by_xpath(login_submit).click()
 
 print(input("Complete Puzzle Start Project ..... :"))
 
-driver.get("https://www.binance.com/en/nft/market")
+# driver.get("https://www.binance.com/en/nft/market")
 
 driver.get("https://www.binance.com/en/nft/shopWindow/Mulder?orderBy=list_time&orderType=-1&isBack=1&uid=0cc9e541fc1df9fb78598d71c06ebc1f&order=list_time%40-1")
 
 first_edition = "//div[contains(text(),'First Edition')]"
 driver.find_element_by_xpath(first_edition).click()
-print(input("First Edition ..... :"))
+# print(input("First Edition ..... :"))
 
 fixed_price = "//div[contains(text(),'Fixed Price')]"
 driver.find_element_by_xpath(fixed_price).click()
-print(input("Fixed Price ..... :"))
+# print(input("Fixed Price ..... :"))
 
 busd_radio = "(//*[name()='svg'][@class='css-a4o4go'])[3]"
 driver.find_element_by_xpath(busd_radio).click()
-print(input("BUSD RADIO ..... :"))
+# print(input("BUSD RADIO ..... :"))
 
 price_range_first = "(//input[@placeholder='BUSD Price'])[1]"
 driver.find_element_by_xpath(price_range_first).send_keys(first_price_range)
-print(input("First input ..... :"))
+# print(input("First input ..... :"))
 
 price_range_second = "(//input[@placeholder='BUSD Price'])[2]"
 driver.find_element_by_xpath(price_range_second).send_keys(second_price_range)
-print(input("Second Input ..... :"))
+# print(input("Second Input ..... :"))
 
 ok_button = "//button[normalize-space()='OK']"
 driver.find_element_by_xpath(ok_button).click()
