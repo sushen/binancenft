@@ -25,13 +25,39 @@ chrome_options.add_argument(f"user-data-dir={scriptDirectory}\\userdata")
 driver = webdriver.Chrome("chromedriver.exe", chrome_options=chrome_options)
 
 
-# print(input(" Connect your waller address :"))
+# print(input("Connect your waller address :"))
 driver.implicitly_wait(10)
 driver.get("https://www.binance.com")
 
-print(input("Start Project ..... :"))
+login = "//a[@id='header_login']"
+driver.find_element_by_xpath(login).click()
+print(input("Login Page ..... :"))
+
+binance_email = os.environ.get('binance_email')
+binance_password = os.environ.get('binance_pass')
+
+email = "//input[@name='email']"
+# driver.find_element_by_xpath(email).click()
+# print(input("Email ..... :"))
+driver.find_element_by_xpath(email).send_keys(binance_email)
+print(input("Email ..... :"))
+
+password = "//input[@name='password']"
+driver.find_element_by_xpath(email).send_keys(binance_password)
+print(input("Password ..... :"))
+
+login_submit = "//button[@id='click_login_submit']"
+driver.find_element_by_xpath(login_submit).click()
+print(input("Submit ..... :"))
+
+print(input("Enter captcha Start Project ..... :"))
 
 driver.get("https://www.binance.com/en/nft/market")
+
+first_edition = "//div[contains(text(),'First Edition')]"
+driver.find_element_by_xpath(first_edition).click()
+
+print(input("End Current performance ..... :"))
 
 ActionChains(driver).send_keys(Keys.PAGE_DOWN).perform()
 
