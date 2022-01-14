@@ -26,7 +26,7 @@ driver = webdriver.Chrome("chromedriver.exe", chrome_options=chrome_options)
 
 
 first_price_range = 10
-second_price_range = 100
+second_price_range = 11
 
 # print(input("Connect your waller address :"))
 driver.implicitly_wait(10)
@@ -86,7 +86,8 @@ nft_list_elements = driver.find_elements_by_xpath(nft_list)
 print(len(nft_list_elements))
 nft_numbers = len(nft_list_elements)
 
-if nft_numbers > 0:
+if nft_numbers >= 1:
+    print("nft found")
     nft_list_elements[0].click()
 else:
     print(" No nft found")
