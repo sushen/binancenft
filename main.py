@@ -147,8 +147,6 @@ if nft_numbers >= 1:
 
         switch_tab_to_single_nft(driver)
 
-
-
         print(input("Fixed logic ..... :"))
 else:
     print("No nft found")
