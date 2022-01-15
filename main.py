@@ -31,6 +31,8 @@ second_price_range = 100
 driver.implicitly_wait(10)
 driver.get("https://www.binance.com")
 
+print(input("Complete Puzzle Start Project ..... :"))
+
 
 def binance_login(driver):
     driver.get("https://www.binance.com")
@@ -57,7 +59,7 @@ def binance_login(driver):
     print(input("Solve Puzzle Submit ..... :"))
 
 
-binance_login(driver)
+# binance_login(driver)
 
 
 def buy_nft():
