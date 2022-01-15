@@ -99,7 +99,7 @@ def switch_tab_to_single_nft(driver):
 
 # driver.get("https://www.binance.com/en/nft/shopWindow/Mulder?orderBy=list_time&orderType=-1&isBack=1&uid=0cc9e541fc1df9fb78598d71c06ebc1f&order=list_time%40-1")
 
-driver.get("https://www.binance.com/en/nft/shopWindow/Mytheria?currency=BUSD&amountTo=10&orderBy=list_time&orderType=-1&isBack=0&uid=c19522ee08f014f8b98d7f3ce4309f64&order=list_time%40-1")
+driver.get("https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1")
 
 first_edition = "//div[contains(text(),'First Edition')]"
 driver.find_element_by_xpath(first_edition).click()
