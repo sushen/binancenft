@@ -28,29 +28,35 @@ driver = webdriver.Chrome("chromedriver.exe", chrome_options=chrome_options)
 first_price_range = 10
 second_price_range = 11
 
-# print(input("Connect your waller address :"))
-driver.implicitly_wait(10)
+
 driver.get("https://www.binance.com")
 
-login = "//a[@id='header_login']"
-driver.find_element_by_xpath(login).click()
-# print(input("Login Page ..... :"))
 
-binance_email = os.environ.get('binance_email')
-binance_password = os.environ.get('binance_pass')
+def binance_login(driver):
+    driver.get("https://www.binance.com")
 
-email = "//input[@name='email']"
-driver.find_element_by_xpath(email).send_keys(binance_email)
-# print(input("Email ..... :"))
+    login = "//a[@id='header_login']"
+    driver.find_element_by_xpath(login).click()
+    # print(input("Login Page ..... :"))
 
-password = "//input[@name='password']"
-driver.find_element_by_xpath(password).send_keys(binance_password)
-# print(input("Password ..... :"))
+    binance_email = os.environ.get('binance_email')
+    binance_password = os.environ.get('binance_pass')
+
+    email = "//input[@name='email']"
+    driver.find_element_by_xpath(email).send_keys(binance_email)
+    # print(input("Email ..... :"))
+
+    password = "//input[@name='password']"
+    driver.find_element_by_xpath(password).send_keys(binance_password)
+    # print(input("Password ..... :"))
 
 
-login_submit = "//button[@id='click_login_submit']"
-driver.find_element_by_xpath(login_submit).click()
-# print(input("Submit ..... :"))
+    login_submit = "//button[@id='click_login_submit']"
+    driver.find_element_by_xpath(login_submit).click()
+    # print(input("Submit ..... :"))
+
+
+binance_login(driver)
 
 print(input("Complete Puzzle Start Project ..... :"))
 
