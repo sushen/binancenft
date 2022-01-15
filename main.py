@@ -29,6 +29,7 @@ first_price_range = 10
 second_price_range = 11
 
 
+driver.implicitly_wait(10)
 driver.get("https://www.binance.com")
 
 
@@ -56,9 +57,9 @@ def binance_login(driver):
     # print(input("Submit ..... :"))
 
 
-binance_login(driver)
+# binance_login(driver)
 
-print(input("Complete Puzzle Start Project ..... :"))
+# print(input("Complete Puzzle Start Project ..... :"))
 
 # driver.get("https://www.binance.com/en/nft/market")
 
@@ -91,6 +92,8 @@ nft_list = "//div[@class='css-8a1dsu']"
 nft_list_elements = driver.find_elements_by_xpath(nft_list)
 print(len(nft_list_elements))
 nft_numbers = len(nft_list_elements)
+
+# print(input("Fixed logic ..... :"))
 
 if nft_numbers >= 1:
     print("nft found")
