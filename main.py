@@ -27,6 +27,8 @@ driver = webdriver.Chrome("chromedriver.exe", chrome_options=chrome_options)
 first_price_range = 10
 second_price_range = 100
 
+search_items = "bored ape"
+
 
 driver.implicitly_wait(10)
 
@@ -34,7 +36,7 @@ binance_web = "https://binance.com/"
 
 driver.get(binance_web)
 
-print(input("Complete Puzzle Start Project ..... :"))
+print(input("Start Project ..... :"))
 
 
 def binance_login(driver):
@@ -103,6 +105,15 @@ def switch_tab_to_single_nft(driver):
 # driver.get("https://www.binance.com/en/nft/shopWindow/Mulder?orderBy=list_time&orderType=-1&isBack=1&uid=0cc9e541fc1df9fb78598d71c06ebc1f&order=list_time%40-1")
 
 driver.get("https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1")
+
+search_name = "//input[@placeholder='Search items']"
+driver.find_element_by_xpath(search_name).send_keys(search_items)
+print(input("Write Search ..... :"))
+
+search_btn = "//div[@class='bn-input-suffix css-vurnku']//*[name()='svg']"
+driver.find_element_by_xpath(search_btn).click()
+print(input("Finish Search ..... :"))
+
 
 first_edition = "//div[contains(text(),'First Edition')]"
 driver.find_element_by_xpath(first_edition).click()
