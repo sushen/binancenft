@@ -30,7 +30,7 @@ second_price_range = 100
 
 driver.implicitly_wait(10)
 
-binance_web = "https://accounts.binance.com/en/register?ref=35023868"
+binance_web = "https://binance.com/"
 
 driver.get(binance_web)
 
@@ -62,7 +62,7 @@ def binance_login(driver):
     print(input("Solve Puzzle Submit ..... :"))
 
 
-# binance_login(driver)
+binance_login(driver)
 
 
 def buy_nft():
