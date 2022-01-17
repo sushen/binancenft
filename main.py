@@ -29,13 +29,16 @@ second_price_range = 100
 
 
 driver.implicitly_wait(10)
-driver.get("https://www.binance.com")
+
+binance_web = "https://accounts.binance.com/en/register?ref=35023868"
+
+driver.get(binance_web)
 
 print(input("Complete Puzzle Start Project ..... :"))
 
 
 def binance_login(driver):
-    driver.get("https://www.binance.com")
+    driver.get(binance_web)
 
     login = "//a[@id='header_login']"
     driver.find_element_by_xpath(login).click()
