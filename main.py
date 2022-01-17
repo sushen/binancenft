@@ -106,22 +106,23 @@ def switch_tab_to_single_nft(driver):
 
 driver.get("https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1")
 
+driver.implicitly_wait(10)
 search_name = "//input[@placeholder='Search items']"
 driver.find_element_by_xpath(search_name).send_keys(search_items)
-print(input("Write Search ..... :"))
+# print(input("Write Search ..... :"))
 
 search_btn = "//div[@class='bn-input-suffix css-vurnku']//*[name()='svg']"
 driver.find_element_by_xpath(search_btn).click()
-print(input("Finish Search ..... :"))
+# print(input("Finish Search ..... :"))
 
 
 first_edition = "//div[contains(text(),'First Edition')]"
 driver.find_element_by_xpath(first_edition).click()
-print(input("First Edition ..... :"))
+# print(input("First Edition ..... :"))
 
 fixed_price = "//div[contains(text(),'Fixed Price')]"
 driver.find_element_by_xpath(fixed_price).click()
-print(input("Fixed Price ..... :"))
+# print(input("Fixed Price ..... :"))
 
 busd_radio = "(//*[name()='svg'][@class='css-a4o4go'])[3]"
 driver.find_element_by_xpath(busd_radio).click()
@@ -132,17 +133,17 @@ driver.find_element_by_xpath(bnb_radio).click()
 busd_radio = "(//*[name()='svg'][@class='css-a4o4go'])[3]"
 driver.find_element_by_xpath(busd_radio).click()
 
-print(input("BUSD RADIO ..... :"))
+# print(input("BUSD RADIO ..... :"))
 
 driver.implicitly_wait(10)
 time.sleep(.5)
 price_range_first = "(//input[@placeholder='BUSD Price'])[1]"
 driver.find_element_by_xpath(price_range_first).send_keys(first_price_range)
-print(input("First input ..... :"))
+# print(input("First input ..... :"))
 
 price_range_second = "(//input[@placeholder='BUSD Price'])[2]"
 driver.find_element_by_xpath(price_range_second).send_keys(second_price_range)
-print(input("Second Input ..... :"))
+# print(input("Second Input ..... :"))
 
 ok_button = "//button[normalize-space()='OK']"
 driver.find_element_by_xpath(ok_button).click()
