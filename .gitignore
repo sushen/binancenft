@@ -1,5 +1,4 @@
 /userdata/
 /venv/
-/chromedriver.exe
+/Driver/chromedriver.exe
 /.idea
-
