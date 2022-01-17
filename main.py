@@ -1,11 +1,8 @@
 import os
 import time
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.keys import Keys
 import pathlib
-import random
 
 # Setting the chrome_options
 chrome_options = Options()
@@ -21,7 +18,7 @@ chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
 chrome_options.add_argument("user-data-dir=chrome-data")
 chrome_options.add_argument(f"user-data-dir={scriptDirectory}\\userdata")
 
-driver = webdriver.Chrome("chromedriver.exe", chrome_options=chrome_options)
+driver = webdriver.Chrome("Driver/chromedriver.exe", chrome_options=chrome_options)
 
 
 first_price_range = 10
@@ -39,7 +36,6 @@ print(input("Complete Puzzle Start Project ..... :"))
 
 def binance_login(driver):
     driver.get(binance_web)
-
     login = "//a[@id='header_login']"
     driver.find_element_by_xpath(login).click()
     # print(input("Login Page ..... :"))
@@ -94,7 +90,7 @@ def switch_tab_to_single_nft(driver):
 
 # print(input("Complete Puzzle Start Project ..... :"))
 
-# TODO: Test Buy
+# TODO: Tests Buy
 # buy_test = driver.get("https://www.binance.com/en/nft/goods/detail?productId=21564969&isProduct=1")
 
 
