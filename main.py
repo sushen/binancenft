@@ -70,6 +70,7 @@ def buy_nft():
     driver.find_element_by_xpath(nft_buy).click()
     print(input("Made that funcationlaty :"))
     # switch_tab_to_wallet_payment(driver)
+    # TODO : Make click conform button
 
 
 def switch_tab_to_single_nft(driver):
