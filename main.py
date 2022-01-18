@@ -29,8 +29,8 @@ search_items = "bored ape"
 
 driver.implicitly_wait(10)
 
-binance_web = "https://accounts.binance.com/en/register?ref=35023868"
-# binance_web = "https://binance.com/"
+# binance_web = "https://accounts.binance.com/en/register?ref=35023868"
+binance_web = "https://binance.com/"
 
 driver.get(binance_web)
 
