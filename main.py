@@ -62,7 +62,7 @@ def binance_login(driver):
     print(input("Solve Puzzle Submit ..... :"))
 
 
-binance_login(driver)
+# binance_login(driver)
 
 
 def buy_nft():
