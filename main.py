@@ -1,3 +1,4 @@
+""" This the prototype of the project"""
 import os
 import time
 from selenium import webdriver
