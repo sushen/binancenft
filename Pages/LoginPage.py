@@ -1,20 +1,26 @@
 import os
-from BasePage import BasePage
+from Pages.BasePage import BasePage
 
+from selenium.webdriver.common.by import By
 
-class login_page(BasePage):
-    binance_email = os.environ.get('binance_email')
-    binance_password = os.environ.get('binance_pass')
+from Config.bot_config import BotData
+
+class LoginPage(BasePage):
+
+    login_btn = (By.XPATH, "//a[@id='header_login']")
+
+    EMAIL = (By.XPATH, "//input[@name='email']")
+    PASSWORD = (By.XPATH, "//input[@name='password']")
 
     def __init__(self, driver):
         super().__init__(driver)
+        self.driver.get(BotData.BASE_URL)
 
-    def login_btn(self, login_btn):
-        self.do_click(login_btn)
+    """ this is used to login """
+    def do_login(self, username, password):
+        self.do_send_keys(self.EMAIL, username)
+        self.do_send_keys(self.PASSWORD, password)
 
-    def do_login(self, email, password):
-        self.do_send_keys(self.binance_email, email)
-        self.do_send_keys(self.binance_password, password)
 
-    def do_input_click(self, element):
-        self.do_click(element)
+
+
