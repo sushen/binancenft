@@ -24,8 +24,11 @@ driver = webdriver.Chrome("Driver/chromedriver.exe", chrome_options=chrome_optio
 
 first_price_range = 1
 second_price_range = 60
-
 search_items = "ape"
+
+# TODO : Put Your Collection Link
+collection_link = "https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1"
+
 
 
 driver.implicitly_wait(10)
@@ -107,11 +110,8 @@ def switch_tab_to_single_nft(driver):
 # buy_test = driver.get("https://www.binance.com/en/nft/goods/detail?productId=21564969&isProduct=1")
 
 
-# driver.get("https://www.binance.com/en/nft/market")
+driver.get(collection_link)
 
-# driver.get("https://www.binance.com/en/nft/shopWindow/Mulder?orderBy=list_time&orderType=-1&isBack=1&uid=0cc9e541fc1df9fb78598d71c06ebc1f&order=list_time%40-1")
-
-driver.get("https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1")
 
 # driver.implicitly_wait(10)
 # search_name = "//input[@placeholder='Search items']"
