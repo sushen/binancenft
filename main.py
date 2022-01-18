@@ -116,7 +116,7 @@ driver.get("https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0
 driver.implicitly_wait(10)
 search_name = "//input[@placeholder='Search items']"
 driver.find_element_by_xpath(search_name).send_keys(search_items)
-# print(input("Write Search ..... :"))
+print(input("Write Search ..... :"))
 
 search_btn = "//div[@class='bn-input-suffix css-vurnku']//*[name()='svg']"
 driver.find_element_by_xpath(search_btn).click()
