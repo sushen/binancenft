@@ -149,25 +149,44 @@ driver.find_element_by_xpath(ok_button).click()
 
 
 nft_list = "//div[@class='css-8a1dsu']"
-nft_list_elements = driver.find_elements_by_xpath(nft_list)
-print(len(nft_list_elements))
-nft_numbers = len(nft_list_elements)
+# nft_list_elements = driver.find_elements_by_xpath(nft_list)
+# print(len(nft_list_elements))
+# nft_numbers = len(nft_list_elements)
 
 print(input("Fixed logic ..... :"))
 
 # TODO : We need to loop when the nft found is 0
 
-if nft_numbers >= 1:
-    print("nft found")
-    for nft in range(0, nft_numbers):
-        print(nft)
-        nft_list_elements[nft].click()
+condition = True
+# count = 0
 
-        switch_tab_to_single_nft(driver)
+while condition:
+    nft_list_elements = driver.find_elements_by_xpath(nft_list)
+    print(len(nft_list_elements))
+    nft_numbers = len(nft_list_elements)
+    if nft_numbers >= 1:
+        print("nft found")
+        for nft in range(0, nft_numbers):
+            print(nft)
+            nft_list_elements[nft].click()
 
-        print(input("Fixed logic ..... :"))
-else:
-    print("No nft found")
+            switch_tab_to_single_nft(driver)
+
+            print(input("Fixed logic ..... :"))
+        condition = False
+    else:
+        print("No nft found")
+        driver.find_element_by_xpath(ok_button).click()
+        # if count == 10:
+        #     first_edition = "//div[contains(text(),'First Edition')]"
+        #     driver.find_element_by_xpath(first_edition).click()
+        #     print(input("First Edition ..... :"))
+        #
+        #     fixed_price = "//div[contains(text(),'Fixed Price')]"
+        #     driver.find_element_by_xpath(fixed_price).click()
+        #     print(input("Fixed Price ..... :"))
+        condition = True
+    # count += 1
 
 print(input("End Current performance ..... :"))
 
