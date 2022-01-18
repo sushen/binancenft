@@ -4,14 +4,8 @@ import os
 class BotData:
     CHROME_EXECUTABLE_PATH = "../Driver/chromedriver.exe"
     FIREFOX_EXECUTABLE_PATH = "../geckodriver.exe"
-    BASE_URL = "https://www.facebook.com/"
-
-    # # Test Account
-    # USER_NAME = os.environ.get('facebook_zrliqi_email')
-    # PASSWORD = os.environ.get('facebook_zrliqi_pass')
+    BASE_URL = "https://www.binance.com/"
 
     # My Account
-    USER_NAME = os.environ.get('my_facebook_username')
-    PASSWORD = os.environ.get('my_facebook_password')
-
-    LOGIN_PAGE_TITLE = "Facebook – log in or sign up"
+    EMAIL = os.environ.get('binance_email')
+    PASSWORD = os.environ.get('binance_pass')
