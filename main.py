@@ -167,8 +167,10 @@ print(input("Logic Correction..... :"))
 
 condition = True
 # count = 0
+nft_list_elements = []
 
-while condition:
+for idx in range(1, 1000):
+    print(idx)
     nft_list_elements = driver.find_elements_by_xpath(nft_list)
     print(len(nft_list_elements))
     nft_numbers = len(nft_list_elements)
