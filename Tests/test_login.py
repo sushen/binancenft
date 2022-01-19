@@ -12,9 +12,9 @@ class Test_Login(Basetest):
         title = self.loginPage.get_login_page_title(TestData.Login_page_title)
         assert title == TestData.Login_page_title
 
-    # def test_login(self):
-    #     self.loginPage = LoginPage(self.driver)
-    #     self.loginPage.do_login(TestData.email, TestData.password)
+    def test_login(self):
+        self.loginPage = LoginPage(self.driver)
+        self.loginPage.do_login(TestData.email, TestData.password)
 
 
 # Test_Login()
