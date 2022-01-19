@@ -70,3 +70,4 @@ def buy_nft():
 
 
 buy_nft()
+
