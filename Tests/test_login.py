@@ -17,4 +17,4 @@ class Test_Login(Basetest):
         self.loginPage.do_login(TestData.email, TestData.password)
 
 
-Test_Login()
+# Test_Login()
