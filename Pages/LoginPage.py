@@ -19,5 +19,5 @@ class LoginPage(BasePage):
 
     def do_login(self, username, password):
         self.do_send_keys(self.Email, username)
-        self.do_send_keys(self.Password, username)
+        self.do_send_keys(self.Password, password)
         self.do_click(self.LoginBtn)
