@@ -19,8 +19,8 @@ class SearchPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        cookies.load_cookies(self.driver, TestData.Cookie_location)
-        self.driver.get(self.collection_link)
+        # cookies.load_cookies(self.driver, TestData.Cookie_location)
+        # self.driver.get(self.collection_link)
 
     def get_search_page_title(self, title):
         return self.get_title(title)
@@ -42,4 +42,5 @@ class SearchPage(BasePage):
 
     def input_min(self):
         self.do_send_keys(self.min_value_box, self.min_value)
+
 

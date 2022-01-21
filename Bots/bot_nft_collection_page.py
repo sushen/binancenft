@@ -1,11 +1,9 @@
-import pytest
-
+from Bots.Base_bot import BaseBot
 from Config.config import TestData
 from Pages.NftCollectionPage import SearchPage
-from Tests.test_base import Basetest
 
 
-class Test_Collection(Basetest):
+class Bot_Collection(BaseBot):
 
     def test_search_page_title(self):
         print("search_page_title")
