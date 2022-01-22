@@ -43,6 +43,10 @@ class Bot_Collection(BaseBot):
         elements = self.search.find_nft()
         return elements
 
+    def test_click_ok_button(self):
+        self.search = NftCollectionPage(self.driver)
+        self.search.click_ok_button()
+
 
 
 

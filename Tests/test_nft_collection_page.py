@@ -42,6 +42,9 @@ class Test_Collection(Basetest):
     # def test_find_nft(self):
     #     self.search = NftCollectionPage(self.driver)
     #     self.search.find_nft()
+    def test_click_ok_button(self):
+        self.search = NftCollectionPage(self.driver)
+        self.search.click_ok_button()
 
     # def test_single_nft_tab(self):
     #     self.nft_collection_page = NftCollectionPage(self.driver)
