@@ -41,9 +41,8 @@ def switch_tab_to_single_nft(driver):
     if driver.window_handles[1] == window_after:
         driver.switch_to.window(window_after)
         # We will buy when we need to
-        # buy_nft()
-        name_of_the_nft = driver.title
-        print(name_of_the_nft)
+        # name_of_the_nft = driver.title
+        # print(name_of_the_nft)
         all_page.test_click_buy_now()
         driver.close()
         driver.switch_to.window(window_before)
