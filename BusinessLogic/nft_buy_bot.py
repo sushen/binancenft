@@ -38,6 +38,7 @@ def switch_tab_to_single_nft(driver):
     start_tab_time = time.time()
     window_before = driver.window_handles[0]
     window_after = driver.window_handles[1]
+
     if driver.window_handles[1] == window_after:
         driver.switch_to.window(window_after)
         # We will buy when we need to
@@ -70,6 +71,7 @@ for idx in range(1000):
             loop_start_time = time.time()
             nft_list[nft].click()
             switch_tab_to_single_nft(all_page.driver)
+            # TODO: Base on nft no. we wll open tabs and buy all the nft together
             CurrentTime = time.time()
             totalRunningTime = CurrentTime - loop_start_time
             print("This Loop is running for " + str(float(totalRunningTime)))
