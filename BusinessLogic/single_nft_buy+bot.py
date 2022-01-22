@@ -21,3 +21,7 @@ except:
 # single nft page
 all_page.driver.get(SingleNftBuy.single_nft_page)
 print(input("Start Buying : "))
+
+all_page.test_click_buy_now()
+print(input("Press confirm: "))
+all_page.test_click_confirm_button()
