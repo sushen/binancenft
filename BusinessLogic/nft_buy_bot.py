@@ -47,6 +47,7 @@ def switch_tab_to_single_nft(driver):
         all_page.test_click_buy_now()
         driver.close()
         driver.switch_to.window(window_before)
+        CurrentTime = time.time()
         totalRunningTime = CurrentTime - start_tab_time
         print("This Tab is running for " + str(float(totalRunningTime)))
     else:
