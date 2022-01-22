@@ -3,6 +3,7 @@ import time
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 """ This Class is the parents of all page class """
 """ This Class contains all the generic method and utilities """
@@ -15,9 +16,9 @@ class BasePage:
         self.driver = driver
 
     def do_click(self, by_locator):
-        WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(by_locator)).click()
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
 
-    def  do_hover(self, by_locator):
+    def do_hover(self, by_locator):
         action = ActionChains(self.driver)
         hover_element = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(by_locator))
         action.move_to_element(hover_element).perform()
@@ -29,9 +30,17 @@ class BasePage:
         element = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(by_locator))
         return element.text
 
+    def get_all_elements(self, by_locator):
+        elements = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_all_elements_located(by_locator))
+        return elements
+
     def is_visible(self, by_locator):
         element = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(by_locator))
         return bool(element)
+
+    def are_visible(self, by_locator):
+        elements = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_all_elements_located(by_locator))
+        return bool(elements)
 
     def get_title(self, title):
         WebDriverWait(self.driver, wait_time).until(EC.title_is(title))

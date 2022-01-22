@@ -45,7 +45,7 @@ def binance_login(driver):
     driver.get(binance_web)
     login = "//a[@id='header_login']"
     driver.find_element_by_xpath(login).click()
-    # print(input("Login Page ..... :"))
+    print(input("Login Page ..... :"))
 
     binance_email = os.environ.get('binance_email')
     binance_password = os.environ.get('binance_pass')
@@ -167,13 +167,14 @@ print(input("Logic Correction..... :"))
 
 condition = True
 # count = 0
+nft_list_elements = []
 
-while condition:
+for idx in range(1000):
     nft_list_elements = driver.find_elements_by_xpath(nft_list)
-    print(len(nft_list_elements))
+    # print(len(nft_list_elements))
     nft_numbers = len(nft_list_elements)
     if nft_numbers >= 1:
-        print("nft found")
+        print(f"{idx} no search working and {nft_numbers} nft found")
         for nft in range(0, nft_numbers):
             print(nft)
             nft_list_elements[nft].click()
@@ -183,7 +184,7 @@ while condition:
             # print(input("Fixed logic ..... :"))
         condition = False
     else:
-        print("No nft found")
+        print(f"{idx+1} no search working, No nft found ")
         driver.find_element_by_xpath(ok_button).click()
         # if count == 10:
         #     first_edition = "//div[contains(text(),'First Edition')]"

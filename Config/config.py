@@ -1,12 +1,14 @@
 import os
 
-
 class TestData:
     CHROME_EXECUTABLE_PATH = "../Driver/chromedriver.exe"
-    FIREFOX_EXECUTABLE_PATH = "../geckodriver.exe"
-    BASE_URL = "https://www.facebook.com/"
 
-    USER_NAME = os.environ.get('facebook_zrliqi_email')
-    PASSWORD = os.environ.get('facebook_zrliqi_pass')
+    BASE_URL = "https://accounts.binance.com/en/login"
 
-    LOGIN_PAGE_TITLE = "Facebook – log in or sign up"
+    email = os.environ.get('binance_email')
+    password = os.environ.get('binance_pass')
+
+    Login_page_title = "Log In | Binance"
+    Search_page_title = "NFT▵PRIDE's Collection | Binance NFT"
+
+    Cookie_location = r"../binancenft/Cookies/cookies.txt"
