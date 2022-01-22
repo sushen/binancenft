@@ -1,5 +1,7 @@
 import selenium
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 from Config.config import TestData
 from Config.config_cookies import cookies
@@ -19,11 +21,12 @@ class NftCollectionPage(BasePage):
     min_value = '55'
     nft_list = (By.XPATH, "//div[@class='css-8a1dsu']")
     element = 'selenium.webdriver.remote.webelement.WebElement(session="7d0ddac5120c483f681036a1a413de3c", element="36013b66-61b0-4f39-b6e8-9f23443fc538")'
+    ok_button = (By.XPATH, "//button[normalize-space()='OK']")
 
     def __init__(self, driver):
         super().__init__(driver)
-        cookies.load_cookies(self.driver, TestData.Cookie_location)
-        self.driver.get(self.collection_link)
+        # cookies.load_cookies(self.driver, TestData.Cookie_location)
+        # self.driver.get(self.collection_link)
 
     def get_search_page_title(self, title):
         return self.get_title(title)
@@ -47,8 +50,11 @@ class NftCollectionPage(BasePage):
         self.do_send_keys(self.min_value_box, self.min_value)
 
     def find_nft(self):
-        elements = self.get_all_elements(self.nft_list)
+        elements = WebDriverWait(self.driver, 1).until(EC.visibility_of_all_elements_located(self.nft_list))
         return elements
 
     def single_nft_tab(self):
         self.new_window(self.nft_list)
+
+    def click_ok_button(self):
+        self.do_click(self.ok_button)
