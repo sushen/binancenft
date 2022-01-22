@@ -18,8 +18,8 @@ class SingleNftBuy(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        cookies.load_cookies(self.driver, TestData.Cookie_location)
-        self.driver.get(self.single_nft_page)
+        # cookies.load_cookies(self.driver, TestData.Cookie_location)
+        # self.driver.get(self.single_nft_page)
 
     def is_visible_allow_button(self):
         return self.is_visible(self.allow_button)
@@ -35,3 +35,5 @@ class SingleNftBuy(BasePage):
 
     def click_confirm_button(self):
         self.do_click(self.confirm)
+
+
