@@ -65,7 +65,7 @@ def binance_login(driver):
     print(input("Solve Puzzle Submit ..... :"))
 
 
-binance_login(driver)
+# binance_login(driver)
 
 
 def buy_nft():
@@ -184,7 +184,7 @@ for idx in range(1000):
             # print(input("Fixed logic ..... :"))
         condition = False
     else:
-        print(f"{idx} no search working, No nft found ")
+        print(f"{idx+1} no search working, No nft found ")
         driver.find_element_by_xpath(ok_button).click()
         # if count == 10:
         #     first_edition = "//div[contains(text(),'First Edition')]"
