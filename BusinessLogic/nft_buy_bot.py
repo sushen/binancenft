@@ -55,9 +55,10 @@ def switch_tab_to_single_nft(driver):
         print(input(" Conform button :"))
 
         all_page.test_click_confirm_button()
-        if all_page.test_is_visible_collection_button():
-            driver.close()
-            driver.switch_to.window(window_before)
+        print(input("Confirm button"))
+        # if all_page.test_is_visible_collection_button()
+        driver.close()
+        driver.switch_to.window(window_before)
 
         # all_page.test_click_ok_button()
 
