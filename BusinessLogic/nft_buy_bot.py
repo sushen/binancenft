@@ -53,11 +53,13 @@ def switch_tab_to_single_nft(driver):
         all_page.test_click_buy_now()
 
         print(input(" Conform button :"))
-        all_page.test_click_confirm_button()
-        print(input(" Conform button :"))
 
+        all_page.test_click_confirm_button()
         driver.close()
         driver.switch_to.window(window_before)
+
+        # all_page.test_click_ok_button()
+
         CurrentTime = time.time()
         totalRunningTime = CurrentTime - start_tab_time
         print("This Tab is running for " + str(float(totalRunningTime)))
@@ -84,6 +86,10 @@ for idx in range(1000):
             loop_start_time = time.time()
             nft_list[nft].click()
             switch_tab_to_single_nft(all_page.driver)
+
+            all_page.test_click_ok_button()
+            all_page.test_click_ok_button()
+
             # TODO: Base on nft no. we wll open tabs and buy all the nft together
             CurrentTime = time.time()
             totalRunningTime = CurrentTime - loop_start_time
