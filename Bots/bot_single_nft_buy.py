@@ -17,3 +17,4 @@ class bot_single_nft_buy(BaseBot):
     def test_click_confirm_button(self):
         self.search = SingleNftBuy(self.driver)
         self.search.click_confirm_button()
+        print(input(" Confirm button :"))
