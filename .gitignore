@@ -3,3 +3,7 @@
 /Driver/chromedriver.exe
 /.idea
 /experiment/userdata/
+/BusinessLogic/userdata/
+/.pytest_cache/
+/BusinessLogic/userdata/
+
