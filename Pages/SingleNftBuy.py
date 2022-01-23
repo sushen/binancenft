@@ -15,7 +15,7 @@ class SingleNftBuy(BasePage):
     buy_now_button = (By.XPATH, "//button[normalize-space()='Buy Now']")
     allow_button = (By.XPATH, "//button[contains(text(),'Accept')]")
     confirm = (By.XPATH, "//button[normalize-space()='Confirm']")
-    collections = (By.XPATH, "//button[contains(text(),'Collections')]")
+    collections = (By.XPATH, "//button[normalize - space() = 'Collections']")
 
     def __init__(self, driver):
         super().__init__(driver)
