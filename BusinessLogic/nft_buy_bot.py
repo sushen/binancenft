@@ -51,6 +51,10 @@ def switch_tab_to_single_nft(driver):
 
         # buy nft
         all_page.test_click_buy_now()
+
+        print(input(" Conform button :"))
+        all_page.test_click_confirm_button()
+
         driver.close()
         driver.switch_to.window(window_before)
         CurrentTime = time.time()
