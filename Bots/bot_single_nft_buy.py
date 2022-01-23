@@ -17,4 +17,9 @@ class bot_single_nft_buy(BaseBot):
     def test_click_confirm_button(self):
         self.search = SingleNftBuy(self.driver)
         self.search.click_confirm_button()
-        print(input(" Confirm button :"))
+
+    def test_is_visible_collection_button(self):
+        self.single_nft = SingleNftBuy(self.driver)
+        collection_button = self.single_nft.is_visible_collection_button()
+        print(str(collection_button))
+        return collection_button

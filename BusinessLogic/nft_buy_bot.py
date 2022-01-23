@@ -20,9 +20,13 @@ all_page = AllPageBot()
 # TODO: go to binance
 
 # TODO: login
+
+
+
 try:
     login = all_page.login()
     print(input("Press any Key: "))
+
 except:
     print("You already lodged in")
 # if all_page.test_is_visible_allow_page():
@@ -55,6 +59,8 @@ def switch_tab_to_single_nft(driver):
         print(input(" Conform button :"))
 
         all_page.test_click_confirm_button()
+        print(input("Confirm button"))
+        # if all_page.test_is_visible_collection_button()
         driver.close()
         driver.switch_to.window(window_before)
 
@@ -64,6 +70,7 @@ def switch_tab_to_single_nft(driver):
         totalRunningTime = CurrentTime - start_tab_time
         print("This Tab is running for " + str(float(totalRunningTime)))
     else:
+
         driver.switch_to.window(window_before)
         print(" Didn't find Second Tab")
 
@@ -74,6 +81,7 @@ def switch_tab_to_single_nft(driver):
 # Repeat the process
 
 for idx in range(1000):
+    search_loop_start_time = time.time()
     try:
         nft_list = all_page.test_find_nft()
     except:
@@ -95,8 +103,12 @@ for idx in range(1000):
             totalRunningTime = CurrentTime - loop_start_time
             print("This Loop is running for " + str(float(totalRunningTime)))
     else:
+
         print(f"{idx+1} no search working, No nft found ")
         all_page.test_click_ok_button()
+        CurrentTime = time.time()
+        totalRunningTime = CurrentTime - search_loop_start_time
+        print("This Loop is running for " + str(float(totalRunningTime)))
 
 
 # TODO: go to collection
