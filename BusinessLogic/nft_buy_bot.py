@@ -33,20 +33,31 @@ except:
 all_page.driver.get(NftCollectionPage.collection_link)
 print(input("Filter done:"))
 
+
 def switch_tab_to_single_nft(driver):
+    # go to single nft
     # print(len(driver.window_handles))
     start_tab_time = time.time()
     window_before = driver.window_handles[0]
+    # TODO : Got Error
+    """ here window_after = driver.window_handles[1] IndexError: list index out of range """
     window_after = driver.window_handles[1]
+
     if driver.window_handles[1] == window_after:
         driver.switch_to.window(window_after)
         # We will buy when we need to
-        # buy_nft()
-        name_of_the_nft = driver.title
-        print(name_of_the_nft)
+        # name_of_the_nft = driver.title
+        # print(name_of_the_nft)
+
+        # buy nft
         all_page.test_click_buy_now()
+
+        print(input(" Conform button :"))
+        all_page.test_click_confirm_button()
+
         driver.close()
         driver.switch_to.window(window_before)
+        CurrentTime = time.time()
         totalRunningTime = CurrentTime - start_tab_time
         print("This Tab is running for " + str(float(totalRunningTime)))
     else:
@@ -56,6 +67,8 @@ def switch_tab_to_single_nft(driver):
 # nft_list = all_page.driver.find_elements_by_xpath("//div[@class='css-8a1dsu']")
 # print(len(nft_list))
 
+
+# Repeat the process
 
 for idx in range(1000):
     try:
@@ -70,6 +83,7 @@ for idx in range(1000):
             loop_start_time = time.time()
             nft_list[nft].click()
             switch_tab_to_single_nft(all_page.driver)
+            # TODO: Base on nft no. we wll open tabs and buy all the nft together
             CurrentTime = time.time()
             totalRunningTime = CurrentTime - loop_start_time
             print("This Loop is running for " + str(float(totalRunningTime)))
@@ -77,9 +91,7 @@ for idx in range(1000):
         print(f"{idx+1} no search working, No nft found ")
         all_page.test_click_ok_button()
 
-# TODO: go to single nft
-# TODO: buy nft
-# TODO: Repeat the process
+
 # TODO: go to collection
 
 EndTime = time.time()
