@@ -45,6 +45,9 @@ cookies_location = "cookies.txt"
 
 driver.get(TestData.BASE_URL)
 
+# login = "//a[@id='header_login']"
+# driver.find_element(By.XPATH, "header_login").click()
+# print(input("Login Page ..... :"))
 
 binance_email = os.environ.get('binance_email')
 binance_password = os.environ.get('binance_pass')
@@ -62,4 +65,7 @@ driver.find_element_by_xpath(login_submit).click()
 print(input("Submit ..... :"))
 
 save_cookies(driver, cookies_location)
-driver.quit()
+# driver.quit()
+
+load_cookies(driver, TestData.Cookie_location)
+driver.get(collection_link)
