@@ -12,7 +12,11 @@ from Pages.BasePage import BasePage
 
 
 class NftCollectionPage(BasePage):
-    collection_link = "https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1"
+    # Real Collection
+    # collection_link = "https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1"
+    # Low price NFT collection
+    collection_link = "https://www.binance.com/en/nft/shopWindow/PrimalStudios?reSale=0&tradeType=0&currency=BUSD&amountFrom=1&amountTo=5&orderBy=list_time&orderType=-1&isBack=1&uid=0e1e5e74368b9f9f2b5299033beff701&order=list_time%40-1"
+
     allow_button = (By.XPATH, "//button[contains(text(),'Accept')]")
     search_box = (By.XPATH, "//input[@placeholder='Search items']")
     search_text = "ape"
