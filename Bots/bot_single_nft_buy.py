@@ -13,3 +13,7 @@ class bot_single_nft_buy(BaseBot):
         CurrentTime = time.time()
         totalRunningTime = CurrentTime - start_tab_time
         print("This single nft buy is running for " + str(float(totalRunningTime)))
+
+    def test_click_confirm_button(self):
+        self.search = SingleNftBuy(self.driver)
+        self.search.click_confirm_button()
