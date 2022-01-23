@@ -17,7 +17,7 @@ def init_driver(request):
     request.cls.driver = web_driver
     # 3 We cannot close browser so we comment it
     yield
-    web_driver.close()
+    # web_driver.close()
 
 
 
