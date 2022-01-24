@@ -56,7 +56,7 @@ def switch_tab_to_single_nft(driver):
         # buy nft
         all_page.test_click_buy_now()
 
-        print(input("Conform button :"))
+        # print(input("Conform button :"))
 
         # TODO : find why its not working
         all_page.test_click_confirm_button()
@@ -67,14 +67,14 @@ def switch_tab_to_single_nft(driver):
 
         print(input("Confirm Collection button :"))
 
-        # if all_page.test_is_visible_collection_button():
-        #     print(input("Confirm Switch window :"))
-        #     driver.close()
-        #     driver.switch_to.window(window_before)
-        # else:
-        #     print(" We Didn't buy")
-        #     print(input("Logical error"))
-        # # all_page.test_click_ok_button()
+        if all_page.test_is_visible_collection_button():
+            print(input("Confirm Switch window :"))
+            driver.close()
+            driver.switch_to.window(window_before)
+        else:
+            print(" We Didn't buy")
+            print(input("Logical error"))
+        # all_page.test_click_ok_button()
 
         CurrentTime = time.time()
         totalRunningTime = CurrentTime - start_tab_time
