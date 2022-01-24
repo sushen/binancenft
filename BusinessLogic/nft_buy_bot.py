@@ -56,12 +56,16 @@ def switch_tab_to_single_nft(driver):
         # buy nft
         all_page.test_click_buy_now()
 
-        # print(input(" Conform button :"))
+        print(input("Conform button :"))
 
         # TODO : find why its not working
         all_page.test_click_confirm_button()
 
-        # print(input("Confirm Collection button :"))
+        # TODO : we will wait for this x path "//div[@class='css-57wjep']"
+
+        # TODO : we will cross this "//div[@class='css-tg2yeu']//*[name()='svg']"
+
+        print(input("Confirm Collection button :"))
 
         if all_page.test_is_visible_collection_button():
             print(input("Confirm Switch window :"))
