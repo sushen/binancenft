@@ -17,6 +17,8 @@ class NftCollectionPage(BasePage):
     # Low price NFT collection
     collection_link = "https://www.binance.com/en/nft/shopWindow/Honyx?reSale=0&tradeType=0&currency=BUSD&orderBy=amount_sort&orderType=1&isBack=1&uid=e43e7da3bc0733ce6978dbe7db14bac1&order=amount_sort%401"
 
+
+
     allow_button = (By.XPATH, "//button[contains(text(),'Accept')]")
     search_box = (By.XPATH, "//input[@placeholder='Search items']")
     search_text = "ape"
