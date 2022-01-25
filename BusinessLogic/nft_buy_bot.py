@@ -56,14 +56,24 @@ def switch_tab_to_single_nft(driver):
         # buy nft
         all_page.test_click_buy_now()
 
-        print(input(" Conform button :"))
+        # print(input("Conform button :"))
 
+        # TODO : find why its not working
         all_page.test_click_confirm_button()
-        print(input("Confirm button"))
-        # if all_page.test_is_visible_collection_button():
-        driver.close()
-        driver.switch_to.window(window_before)
 
+        # TODO : we will wait for this x path "//div[@class='css-57wjep']"
+
+        # TODO : we will cross this "//div[@class='css-tg2yeu']//*[name()='svg']"
+
+        print(input("Confirm Collection button :"))
+
+        if all_page.test_is_visible_collection_button():
+            print(input("Confirm Switch window :"))
+            driver.close()
+            driver.switch_to.window(window_before)
+        else:
+            print(" We Didn't buy")
+            print(input("Logical error"))
         # all_page.test_click_ok_button()
 
         CurrentTime = time.time()
@@ -79,6 +89,8 @@ def switch_tab_to_single_nft(driver):
 
 
 # Repeat the process
+buying_start_time = time.time()
+
 
 for idx in range(1000):
     search_loop_start_time = time.time()
@@ -108,7 +120,10 @@ for idx in range(1000):
         all_page.test_click_ok_button()
         CurrentTime = time.time()
         totalRunningTime = CurrentTime - search_loop_start_time
-        print("This Loop is running for " + str(float(totalRunningTime)))
+        print("This Search is running for " + str(float(totalRunningTime)))
+
+        totalBuyingTime = CurrentTime - buying_start_time
+        print("This Search is running for " + str(int(totalBuyingTime / 60)) + " Minutes.")
 
 
 # TODO: go to collection
