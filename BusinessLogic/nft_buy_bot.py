@@ -1,5 +1,7 @@
 import time
 
+from selenium.webdriver.common.by import By
+
 from Bots.AllPageBot import AllPageBot
 from Pages.NftCollectionPage import NftCollectionPage
 
@@ -34,28 +36,33 @@ def switch_tab_to_single_nft(driver):
         driver.switch_to.window(window_after)
 
         all_page.test_click_confirm_button()
+        failed_text = "//h6[contains(text(), 'Payment failed')]"
+        success_paid = "// h6[normalize - space() = 'Success paid']"
+
+        # payment = all_page.driver.find_element(By.XPATH, failed_text)
+        success = all_page.driver.find_element(By.XPATH, success_paid)
+
 
         print(input("Confirm Collection button :"))
-        payment = SingleNftBuy.failed_text
-        print(payment)
-        print(payment.text)
+        print(success)
+        print(success.text)
         print(input("Confirm Collection button :"))
 
-        if payment:
-            all_page.test_click_return_button()
-            all_page.test_click_confirm_button()
-            payment = all_page.test_is_visible_payment_failed()
-            print("return tried once")
-            if payment:
-                all_page.test_click_return_button()
-                all_page.test_click_confirm_button()
-                payment = all_page.test_is_visible_payment_failed()
-                print("return tried twice")
-                if payment:
-                    all_page.test_click_return_button()
-                    all_page.test_click_confirm_button()
-                    print("return tried thrice")
-                    print(input("payment is not working. Restart the bot"))
+        # if payment:
+        #     all_page.test_click_return_button()
+        #     all_page.test_click_confirm_button()
+        #     payment = all_page.test_is_visible_payment_failed()
+        #     print("return tried once")
+        #     if payment:
+        #         all_page.test_click_return_button()
+        #         all_page.test_click_confirm_button()
+        #         payment = all_page.test_is_visible_payment_failed()
+        #         print("return tried twice")
+        #         if payment:
+        #             all_page.test_click_return_button()
+        #             all_page.test_click_confirm_button()
+        #             print("return tried thrice")
+        #             print(input("payment is not working. Restart the bot"))
 
 
         print(input("Confirm Switch window :"))
