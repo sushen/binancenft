@@ -11,11 +11,12 @@ print("This Script Start " + time.ctime())
 
 all_page = AllPageBot()
 
-# try:
-#     login = all_page.login()
-#     print(input("Press any Key: "))
-# except:
-#     print("You already lodged in")
+
+try:
+    login = all_page.login()
+    print(input("Press any Key: "))
+except:
+    print("You already lodged in")
 
 # TODO: find nft
 all_page.driver.get(NftCollectionPage.collection_link)
