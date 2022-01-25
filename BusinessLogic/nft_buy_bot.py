@@ -36,7 +36,8 @@ def after_payment(success, payment_failed):
 
 
 def ok_button():
-    for i in range(5):
+    for i in range(10):
+        print(i)
         all_page.test_click_ok_button()
 
 
@@ -85,7 +86,7 @@ def switch_tab_to_single_nft(driver):
 # Repeat the process
 buying_start_time = time.time()
 
-for idx in range(1000):
+for idx in range(6000):
     search_loop_start_time = time.time()
     try:
         nft_list = all_page.test_find_nft()
