@@ -25,6 +25,15 @@ all_page.driver.get(NftCollectionPage.collection_link)
 print(input("Filter done:"))
 
 
+def after_payment(success, payment_failed):
+    if success:
+        print(success[0].text)
+    elif payment_failed:
+        print(payment_failed[0].text)
+        all_page.test_click_return_button()
+        all_page.test_click_confirm_button()
+
+
 def switch_tab_to_single_nft(driver):
     start_tab_time = time.time()
     window_before = driver.window_handles[0]
@@ -36,34 +45,14 @@ def switch_tab_to_single_nft(driver):
         driver.switch_to.window(window_after)
 
         all_page.test_click_confirm_button()
+
+        success_paid = "//div[@class='css-57wjep']"
+        success = all_page.driver.find_elements(By.XPATH, success_paid)
+
         failed_text = "//h6[contains(text(), 'Payment failed')]"
-        success_paid = "// h6[normalize - space() = 'Success paid']"
+        payment_failed = all_page.driver.find_elements(By.XPATH, failed_text)
 
-        # payment = all_page.driver.find_element(By.XPATH, failed_text)
-        success = all_page.driver.find_element(By.XPATH, success_paid)
-
-
-        print(input("Confirm Collection button :"))
-        print(success)
-        print(success.text)
-        print(input("Confirm Collection button :"))
-
-        # if payment:
-        #     all_page.test_click_return_button()
-        #     all_page.test_click_confirm_button()
-        #     payment = all_page.test_is_visible_payment_failed()
-        #     print("return tried once")
-        #     if payment:
-        #         all_page.test_click_return_button()
-        #         all_page.test_click_confirm_button()
-        #         payment = all_page.test_is_visible_payment_failed()
-        #         print("return tried twice")
-        #         if payment:
-        #             all_page.test_click_return_button()
-        #             all_page.test_click_confirm_button()
-        #             print("return tried thrice")
-        #             print(input("payment is not working. Restart the bot"))
-
+        after_payment(success, payment_failed)
 
         print(input("Confirm Switch window :"))
         driver.close()
