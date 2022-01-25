@@ -36,7 +36,8 @@ def after_payment(success, payment_failed):
 
 
 def ok_button():
-    for i in range(5):
+    for i in range(10):
+        print(i)
         all_page.test_click_ok_button()
 
 
