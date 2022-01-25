@@ -25,11 +25,11 @@ all_page.driver.get(NftCollectionPage.collection_link)
 print(input("Filter done:"))
 
 
-def after_payment(success, payment_failed):
-    if success:
+def after_payment(driver, success, payment_failed):
+    if driver.find_elements_by_xpath(success):
         print(success[0].text)
         print("Is the function working")
-    elif payment_failed:
+    elif driver.find_elements_by_xpath(payment_failed):
         print(payment_failed[0].text)
         all_page.test_click_return_button()
         all_page.test_click_confirm_button()
@@ -47,13 +47,15 @@ def switch_tab_to_single_nft(driver):
 
         all_page.test_click_confirm_button()
 
-        success_paid = "//div[@class='css-57wjep']"
-        success = all_page.driver.find_elements(By.XPATH, success_paid)
+        # TODO Sold problem Fixed "//button[normalize-space()='Sold Out']"
 
-        failed_text = "//h6[contains(text(), 'Payment failed')]"
-        payment_failed = all_page.driver.find_elements(By.XPATH, failed_text)
+        success_paid_xpath = "//div[@class='css-57wjep']"
+        success = all_page.driver.find_elements(By.XPATH, success_paid_xpath)
 
-        after_payment(success, payment_failed)
+        payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
+        payment_failed = all_page.driver.find_elements(By.XPATH, payment_failed_xpath)
+
+        after_payment(all_page.driver, success_paid_xpath, payment_failed_xpath)
 
         print(input("Confirm Switch window :"))
         driver.close()
