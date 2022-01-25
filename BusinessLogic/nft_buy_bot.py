@@ -54,7 +54,7 @@ def switch_tab_to_single_nft(driver):
         # print(name_of_the_nft)
 
         # buy nft
-        all_page.test_click_buy_now()
+        # all_page.test_click_buy_now()
 
         # print(input("Conform button :"))
 

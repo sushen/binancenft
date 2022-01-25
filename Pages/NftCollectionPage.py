@@ -25,6 +25,7 @@ class NftCollectionPage(BasePage):
     nft_list = (By.XPATH, "//div[@class='css-8a1dsu']")
     element = 'selenium.webdriver.remote.webelement.WebElement(session="7d0ddac5120c483f681036a1a413de3c", element="36013b66-61b0-4f39-b6e8-9f23443fc538")'
     ok_button = (By.XPATH, "//button[normalize-space()='OK']")
+    confirm_pop_up = (By.XPATH,)
 
     def __init__(self, driver):
         super().__init__(driver)
