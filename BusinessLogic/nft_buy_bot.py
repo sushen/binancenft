@@ -39,7 +39,10 @@ def switch_tab_to_single_nft(driver):
 
         print(input("Confirm Collection button :"))
 
-        all_page.test_is_visible_collection_button()
+
+        all_page.test_click_return_button()
+        # all_page.test_is_visible_collection_button()
+
 
         print(input("Confirm Switch window :"))
         driver.close()
