@@ -25,11 +25,11 @@ all_page.driver.get(NftCollectionPage.collection_link)
 print(input("Filter done:"))
 
 
-def after_payment(driver, success, payment_failed):
-    if driver.find_elements_by_xpath(success):
+def after_payment(success, payment_failed):
+    if len(success) == 1:
         print(success[0].text)
         print("Is the function working")
-    elif driver.find_elements_by_xpath(payment_failed):
+    elif len(payment_failed) == 1:
         print(payment_failed[0].text)
         all_page.test_click_return_button()
         all_page.test_click_confirm_button()
@@ -55,9 +55,9 @@ def switch_tab_to_single_nft(driver):
         payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
         payment_failed = all_page.driver.find_elements(By.XPATH, payment_failed_xpath)
 
-        after_payment(all_page.driver, success_paid_xpath, payment_failed_xpath)
+        after_payment(success, payment_failed)
 
-        print(input("Confirm Switch window :"))
+        # print(input("Confirm Switch window :"))
         driver.close()
         driver.switch_to.window(window_before)
         # all_page.test_click_ok_button()
