@@ -27,12 +27,17 @@ print(input("Filter done:"))
 
 def after_payment(success, payment_failed):
     if len(success) == 1:
-        print(success[0].text)
-        print("Is the function working")
+        # print(success[0].text)
+        print("This function working")
     elif len(payment_failed) == 1:
         print(payment_failed[0].text)
         all_page.test_click_return_button()
         all_page.test_click_confirm_button()
+
+
+def ok_button():
+    for i in range(5):
+        all_page.test_click_ok_button()
 
 
 def switch_tab_to_single_nft(driver):
@@ -45,7 +50,13 @@ def switch_tab_to_single_nft(driver):
     if driver.window_handles[1] == window_after:
         driver.switch_to.window(window_after)
 
-        all_page.test_click_confirm_button()
+        sold_out_xpat = "//button[normalize-space()='Sold Out']"
+        # sold_out = all_page.driver.find_elements_by_xpath(sold_out_xpat)
+
+        if all_page.driver.find_elements_by_xpath(sold_out_xpat):
+            ok_button()
+        else:
+            all_page.test_click_confirm_button()
 
         # TODO Sold problem Fixed "//button[normalize-space()='Sold Out']"
 
@@ -89,8 +100,7 @@ for idx in range(1000):
             nft_list[nft].click()
             switch_tab_to_single_nft(all_page.driver)
 
-            all_page.test_click_ok_button()
-            all_page.test_click_ok_button()
+            ok_button()
 
             # TODO: Base on nft no. we wll open tabs and buy all the nft together
             CurrentTime = time.time()
