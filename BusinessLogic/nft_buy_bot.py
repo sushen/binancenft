@@ -38,12 +38,23 @@ def switch_tab_to_single_nft(driver):
         # TODO : we will cross this "//div[@class='css-tg2yeu']//*[name()='svg']"
 
         print(input("Confirm Collection button :"))
+        payment = all_page.test_is_visible_payment_failed()
 
-
-        all_page.test_click_return_button()
-
-
-        # all_page.test_is_visible_collection_button()
+        if payment:
+            all_page.test_click_return_button()
+            all_page.test_click_confirm_button()
+            payment = all_page.test_is_visible_payment_failed()
+            print("return tried once")
+            if payment:
+                all_page.test_click_return_button()
+                all_page.test_click_confirm_button()
+                payment = all_page.test_is_visible_payment_failed()
+                print("return tried twice")
+                if payment:
+                    all_page.test_click_return_button()
+                    all_page.test_click_confirm_button()
+                    print("return tried thrice")
+                    print(input("payment is not working. Restart the bot"))
 
 
         print(input("Confirm Switch window :"))
