@@ -28,6 +28,7 @@ print(input("Filter done:"))
 def after_payment(success, payment_failed):
     if success:
         print(success[0].text)
+        print("Is the function working")
     elif payment_failed:
         print(payment_failed[0].text)
         all_page.test_click_return_button()
