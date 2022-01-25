@@ -90,7 +90,7 @@ for idx in range(1000):
         print("This Search is running for " + str(float(totalRunningTime)))
 
         totalBuyingTime = CurrentTime - buying_start_time
-        print("This Search is running for " + str(int(totalBuyingTime / 60)) + " Minutes.\n")
+        print("This Total Process is running less than " + str(int(totalBuyingTime / 60)) + " Minutes.\n")
 
 # TODO: go to collection
 
