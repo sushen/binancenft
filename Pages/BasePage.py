@@ -16,7 +16,7 @@ class BasePage:
         self.driver = driver
 
     def do_click(self, by_locator):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+        WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(by_locator)).click()
 
     def do_hover(self, by_locator):
         action = ActionChains(self.driver)
@@ -47,7 +47,7 @@ class BasePage:
         return self.driver.title
 
     def new_window(self, by_locator):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(by_locator))
         action = ActionChains(self.driver)
         action.send_keys(Keys.TAB).perform()
         new_TAB = ActionChains(self.driver)

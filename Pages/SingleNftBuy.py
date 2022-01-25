@@ -11,10 +11,13 @@ from Pages.BasePage import BasePage
 
 class SingleNftBuy(BasePage):
 
-    single_nft_page = "https://www.binance.com/en/nft/goods/detail?productId=22956545&isProduct=1"
+    single_nft_page = "https://www.binance.com/en/nft/goods/detail?productId=23400545&isProduct=1"
     buy_now_button = (By.XPATH, "//button[normalize-space()='Buy Now']")
     allow_button = (By.XPATH, "//button[contains(text(),'Accept')]")
-    confirm = (By.XPATH, "//button[normalize-space()='Confirm']")
+    confirm = (By.XPATH, "//button[@class=' css-grqa6a']")
+    collections = (By.XPATH, "//button[normalize - space() = 'Collections']")
+    failed_text = (By.XPATH, "//h6[contains(text(), 'Payment failed')]")
+    return_button = (By.XPATH, "//button[normalize-space()='Return']")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -35,5 +38,14 @@ class SingleNftBuy(BasePage):
 
     def click_confirm_button(self):
         self.do_click(self.confirm)
+
+    def is_visible_collection_button(self):
+        return self.is_visible(self.collections)
+
+    def is_visible_payment_failed(self):
+        return self.is_visible(self.failed_text)
+
+    def click_return_button(self):
+        self.do_click(self.return_button)
 
 

@@ -12,7 +12,10 @@ from Pages.BasePage import BasePage
 
 
 class NftCollectionPage(BasePage):
-    collection_link = "https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1"
+    # Real Collection
+    # collection_link = "https://www.binance.com/en/nft/shopWindow/NFT%E2%96%B5PRIDE?reSale=0&tradeType=0&orderBy=list_time&orderType=-1&isBack=1&uid=aa80c3015e02724438bd7cb9e662c5b8&order=list_time%40-1"
+    # Low price NFT collection
+    collection_link = "https://www.binance.com/en/nft/shopWindow/Honyx?reSale=0&tradeType=0&currency=BUSD&orderBy=amount_sort&orderType=1&isBack=1&uid=e43e7da3bc0733ce6978dbe7db14bac1&order=amount_sort%401"
     allow_button = (By.XPATH, "//button[contains(text(),'Accept')]")
     search_box = (By.XPATH, "//input[@placeholder='Search items']")
     search_text = "ape"
@@ -22,6 +25,7 @@ class NftCollectionPage(BasePage):
     nft_list = (By.XPATH, "//div[@class='css-8a1dsu']")
     element = 'selenium.webdriver.remote.webelement.WebElement(session="7d0ddac5120c483f681036a1a413de3c", element="36013b66-61b0-4f39-b6e8-9f23443fc538")'
     ok_button = (By.XPATH, "//button[normalize-space()='OK']")
+    confirm_pop_up = (By.XPATH,)
 
     def __init__(self, driver):
         super().__init__(driver)
