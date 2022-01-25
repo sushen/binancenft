@@ -15,11 +15,18 @@ class bot_single_nft_buy(BaseBot):
         print("This single nft buy is running for " + str(float(totalRunningTime)))
 
     def test_click_confirm_button(self):
-        self.search = SingleNftBuy(self.driver)
-        self.search.click_confirm_button()
+        self.single_nft = SingleNftBuy(self.driver)
+        self.single_nft.click_buy_now_button()
+        # time.sleep(2)
+        # print(input("click confirm button"))
+        self.single_nft.click_confirm_button()
 
     def test_is_visible_collection_button(self):
         self.single_nft = SingleNftBuy(self.driver)
         collection_button = self.single_nft.is_visible_collection_button()
         print(str(collection_button))
         return collection_button
+
+    def test_click_return_button(self):
+        self.single_nft = SingleNftBuy(self.driver)
+        self.single_nft.click_return_button()
