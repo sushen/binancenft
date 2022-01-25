@@ -14,7 +14,7 @@ class SingleNftBuy(BasePage):
     single_nft_page = "https://www.binance.com/en/nft/goods/detail?productId=23629090&isProduct=1"
     buy_now_button = (By.XPATH, "//button[normalize-space()='Buy Now']")
     allow_button = (By.XPATH, "//button[contains(text(),'Accept')]")
-    confirm = (By.XPATH, "//button[normalize-space()='Confirm']")
+    confirm = (By.XPATH, "//button[@class=' css-grqa6a']")
     collections = (By.XPATH, "//button[normalize - space() = 'Collections']")
     failed_text = (By.XPATH, "//h6[contains(text(), 'Payment failed')]")
 

@@ -17,7 +17,7 @@ class bot_single_nft_buy(BaseBot):
     def test_click_confirm_button(self):
         self.single_nft = SingleNftBuy(self.driver)
         self.single_nft.click_buy_now_button()
-        time.sleep(2)
+        # time.sleep(2)
         # print(input("click confirm button"))
         self.single_nft.click_confirm_button()
 
