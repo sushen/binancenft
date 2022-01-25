@@ -4,18 +4,16 @@ from Bots.AllPageBot import AllPageBot
 from Pages.NftCollectionPage import NftCollectionPage
 
 # Time Counting
-from Pages.SingleNftBuy import SingleNftBuy
-
 StartTime = time.time()
 print("This Script Start " + time.ctime())
 
 all_page = AllPageBot()
 
-# try:
-#     login = all_page.login()
-#     print(input("Press any Key: "))
-# except:
-#     print("You already lodged in")
+try:
+    login = all_page.login()
+    print(input("Press any Key: "))
+except:
+    print("You already lodged in")
 
 # TODO: find nft
 all_page.driver.get(NftCollectionPage.collection_link)
@@ -31,36 +29,11 @@ def switch_tab_to_single_nft(driver):
 
     if driver.window_handles[1] == window_after:
         driver.switch_to.window(window_after)
-
         all_page.test_click_confirm_button()
 
-        print(input("Confirm Collection button :"))
-        payment = SingleNftBuy.failed_text
-        print(payment)
-        print(payment.text)
-        print(input("Confirm Collection button :"))
-
-        if payment:
-            all_page.test_click_return_button()
-            all_page.test_click_confirm_button()
-            payment = all_page.test_is_visible_payment_failed()
-            print("return tried once")
-            if payment:
-                all_page.test_click_return_button()
-                all_page.test_click_confirm_button()
-                payment = all_page.test_is_visible_payment_failed()
-                print("return tried twice")
-                if payment:
-                    all_page.test_click_return_button()
-                    all_page.test_click_confirm_button()
-                    print("return tried thrice")
-                    print(input("payment is not working. Restart the bot"))
-
-
-        print(input("Confirm Switch window :"))
+        print(input("We are done buying :"))
         driver.close()
         driver.switch_to.window(window_before)
-        # all_page.test_click_ok_button()
 
         CurrentTime = time.time()
         totalRunningTime = CurrentTime - start_tab_time
@@ -106,7 +79,7 @@ for idx in range(1000):
         print("This Search is running for " + str(float(totalRunningTime)))
 
         totalBuyingTime = CurrentTime - buying_start_time
-        print("This Total Process is running less than " + str(float(totalBuyingTime / 60)) + " Minutes.\n")
+        print("This Total Process is running less than " + str(int(totalBuyingTime / 60)) + " Minutes.\n")
 
 # TODO: go to collection
 

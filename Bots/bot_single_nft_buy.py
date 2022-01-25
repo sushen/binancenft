@@ -27,6 +27,11 @@ class bot_single_nft_buy(BaseBot):
         print(str(collection_button))
         return collection_button
 
+    def test_is_visible_payment_failed(self):
+        self.single_nft = SingleNftBuy(self.driver)
+        Payment = self.single_nft.is_visible_payment_failed()
+        return Payment
+
     def test_click_return_button(self):
         self.single_nft = SingleNftBuy(self.driver)
         self.single_nft.click_return_button()
