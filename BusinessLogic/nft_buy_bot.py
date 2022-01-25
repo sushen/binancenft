@@ -67,13 +67,10 @@ def switch_tab_to_single_nft(driver):
 
         print(input("Confirm Collection button :"))
 
-        if all_page.test_is_visible_collection_button():
-            print(input("Confirm Switch window :"))
-            driver.close()
-            driver.switch_to.window(window_before)
-        else:
-            print(" We Didn't buy")
-            print(input("Logical error"))
+        all_page.test_is_visible_collection_button()
+            # print(input("Confirm Switch window :"))
+        driver.close()
+        driver.switch_to.window(window_before)
         # all_page.test_click_ok_button()
 
         CurrentTime = time.time()
