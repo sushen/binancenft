@@ -14,15 +14,15 @@ print("This Script Start " + time.ctime())
 all_page = AllPageBot()
 
 
-# try:
-#     login = all_page.login()
-#     print(input("Press any Key: "))
-# except:
-#     print("You already lodged in")
+try:
+    login = all_page.login()
+    print(input("Press any Key: "))
+except:
+    print("You already lodged in")
 
-# single nft page
-all_page.driver.get("https://www.binance.com/en/nft/home")
-print(input("Set Password : "))
+# # single nft page
+# all_page.driver.get("https://www.binance.com/en/nft/home")
+# print(input("Set Password : "))
 
 # TODO: find nft
 all_page.driver.get(NftCollectionPage.collection_link)
@@ -59,7 +59,12 @@ def switch_tab_to_single_nft(driver):
         # sold_out = all_page.driver.find_elements_by_xpath(sold_out_xpat)
 
         if all_page.driver.find_elements_by_xpath(sold_out_xpat):
-            ok_button()
+
+            # ok_button()
+            print("NFT sold out go bach to search")
+
+            driver.close()
+            driver.switch_to.window(window_before)
         else:
             all_page.test_click_confirm_button()
 
