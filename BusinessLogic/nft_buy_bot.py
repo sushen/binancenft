@@ -14,11 +14,15 @@ print("This Script Start " + time.ctime())
 all_page = AllPageBot()
 
 
-try:
-    login = all_page.login()
-    print(input("Press any Key: "))
-except:
-    print("You already lodged in")
+# try:
+#     login = all_page.login()
+#     print(input("Press any Key: "))
+# except:
+#     print("You already lodged in")
+
+# single nft page
+all_page.driver.get("https://www.binance.com/en/nft/home")
+print(input("Set Password : "))
 
 # TODO: find nft
 all_page.driver.get(NftCollectionPage.collection_link)
@@ -36,9 +40,10 @@ def after_payment(success, payment_failed):
 
 
 def ok_button():
-    for i in range(10):
+    for i in range(3):
         print(i)
         all_page.test_click_ok_button()
+        time.sleep(2)
 
 
 def switch_tab_to_single_nft(driver):
@@ -51,34 +56,37 @@ def switch_tab_to_single_nft(driver):
     if driver.window_handles[1] == window_after:
         driver.switch_to.window(window_after)
 
-        sold_out_xpat = "//button[normalize-space()='Sold Out']"
-        # sold_out = all_page.driver.find_elements_by_xpath(sold_out_xpat)
+        # print(input("Change NFT for tasting :"))
+        # all_page.driver.get("https://www.binance.com/en/nft/goods/detail?productId=23911067&isProduct=1")
+        # print(input("Close Tab :"))
 
-        if all_page.driver.find_elements_by_xpath(sold_out_xpat):
-            ok_button()
+        sold_out_xpath = "//button[normalize-space()='Sold Out']"
+        if all_page.driver.find_element_by_xpath(sold_out_xpath):
+            print("NFT sold out go bach to search")
+            # print(input("Find the Sold out button :"))
+            driver.close()
+            driver.switch_to.window(window_before)
+
         else:
+            print(" I am buying")
             all_page.test_click_confirm_button()
 
-        # TODO Sold problem Fixed "//button[normalize-space()='Sold Out']"
+            success_paid_xpath = "//div[@class='css-57wjep']"
+            success = all_page.driver.find_elements(By.XPATH, success_paid_xpath)
 
-        success_paid_xpath = "//div[@class='css-57wjep']"
-        success = all_page.driver.find_elements(By.XPATH, success_paid_xpath)
+            payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
+            payment_failed = all_page.driver.find_elements(By.XPATH, payment_failed_xpath)
 
-        payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
-        payment_failed = all_page.driver.find_elements(By.XPATH, payment_failed_xpath)
+            after_payment(success, payment_failed)
 
-        after_payment(success, payment_failed)
+            driver.close()
+            driver.switch_to.window(window_before)
 
-        # print(input("Confirm Switch window :"))
-        driver.close()
-        driver.switch_to.window(window_before)
-        # all_page.test_click_ok_button()
 
         CurrentTime = time.time()
         totalRunningTime = CurrentTime - start_tab_time
         print("This Tab is running for " + str(float(totalRunningTime)))
     else:
-
         driver.switch_to.window(window_before)
         print(" Didn't find Second Tab")
 
