@@ -12,6 +12,7 @@ class Bot_Login(BaseBot):
 
     def login(self):
         self.loginPage = LoginPage(self.driver)
+        # print(TestData.email+" "+TestData.password)
         self.loginPage.do_login(TestData.email, TestData.password)
 
 
