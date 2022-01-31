@@ -46,7 +46,7 @@ def availability(sold_out, buy_now):
     print(buy_now)
     if all_page.driver.find_elements(By.XPATH, buy_now):
         all_page.test_click_buy_now()
-        # TODO : It didnt buy with continus loop
+        # TODO : It didn't buy with continues loop
         print("clicked buy now")
         print("going to eligibility")
         eligibility(not_enough_xpath)
