@@ -13,18 +13,24 @@ class Test_single_nft(Basetest):
         self.search = SingleNftBuy(self.driver)
         self.search.click_allow_button()
     #
-    def test_click_buy_now(self):
-        self.single_nft = SingleNftBuy(self.driver)
-        self.single_nft.click_buy_now_button()
+    # def test_click_buy_now(self):
+    #     self.single_nft = SingleNftBuy(self.driver)
+    #     self.single_nft.click_buy_now_button()
     #
     # def test_is_visible_confirm_button(self):
     #     self.search = SingleNftBuy(self.driver)
     #     flag = self.search.is_visible_confirm_button()
     #     assert flag
 
-    def test_click_confirm_button(self):
+    # def test_click_confirm_button(self):
+    #     self.single_nft = SingleNftBuy(self.driver)
+    #     self.single_nft.click_buy_now_button()
+    #     self.single_nft.click_confirm_button()
+
+    def test_payment_failed(self):
         self.single_nft = SingleNftBuy(self.driver)
         self.single_nft.click_buy_now_button()
-        # print(input("click confirm button"))
         self.single_nft.click_confirm_button()
-        # print(input("click confirm button"))
+        flag = self.single_nft.is_visible_payment_failed()
+        assert flag
+
