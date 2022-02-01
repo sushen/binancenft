@@ -16,7 +16,9 @@ class SingleNftBuy(BasePage):
     allow_button = (By.XPATH, "//button[contains(text(),'Accept')]")
     confirm = (By.XPATH, "//button[@class=' css-rtsl4l']")
     collections = (By.XPATH, "//button[normalize - space() = 'Collections']")
-
+    buy_now = (By.XPATH, "//button[contains(text(),'Buy Now')]")
+    not_enough = (By.XPATH, "//div[contains(text(),'have enough crypto')]")
+    sold_out_xpath = (By.XPATH, "//button[normalize-space()='Sold Out']")
     return_button = (By.XPATH, "//button[normalize-space()='Return']")
     success_paid = (By.XPATH, "// h6[normalize - space() = 'Success paid']")
 
@@ -37,6 +39,12 @@ class SingleNftBuy(BasePage):
     def is_visible_confirm_button(self):
         return self.is_visible(self.confirm)
 
+    def is_visible_buy_now_button(self):
+        return self.is_visible(self.buy_now)
+
+    def is_visible_not_enough_button(self):
+        return self.is_visible(self.not_enough)
+
     def click_confirm_button(self):
         self.do_click(self.confirm)
 
@@ -45,6 +53,9 @@ class SingleNftBuy(BasePage):
 
     def is_visible_payment_failed(self):
         return self.is_visible(self.failed_text)
+
+    def is_visible_sold_out(self):
+        return self.is_visible(self.sold_out_xpath)
 
     def click_return_button(self):
         self.do_click(self.return_button)

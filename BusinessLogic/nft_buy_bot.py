@@ -41,29 +41,30 @@ success_paid_xpath = "//div[@class='css-57wjep']"
 payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
 
 
-def availability(sold_out, buy_now):
-    print(input("Check availability:"))
-    print(buy_now)
-    if all_page.driver.find_elements(By.XPATH, buy_now):
+def availability():
+    # print(input("Check availability:"))
+    print("checking availability")
+    if all_page.test_is_visible_buy_now_button():
         all_page.test_click_buy_now()
         print("clicked buy now")
         print("going to eligibility")
         eligibility(not_enough_xpath)
-    elif all_page.driver.find_elements(By.XPATH, sold_out):
+    elif all_page.test_is_visible_sold_out_button():
         print("sold out")
         pass
 
 
 def eligibility(not_enough):
-    print(input("Check eligibility:"))
-    if all_page.driver.find_elements(By.XPATH, not_enough):
+    # print(input("Check eligibility:"))
+    time.sleep(2)
+    if all_page.test_is_visible_not_enough_button():
+        print("eligibility failed")
+    else:
         print("eligibility passed")
         all_page.test_click_confirm_button()
         success = all_page.driver.find_elements(By.XPATH, success_paid_xpath)
         payment_failed = all_page.driver.find_elements(By.XPATH, payment_failed_xpath)
         after_payment(success, payment_failed)
-    elif len(not_enough) == 1:
-        print("eligibility failed")
         pass
 
 
@@ -76,7 +77,7 @@ def after_payment(success, payment_failed):
         all_page.test_click_return_button()
         buy_now = all_page.driver.find_elements(By.XPATH, buy_now_xpath)
         sold_out = all_page.driver.find_elements(By.XPATH, sold_out_xpath)
-        availability(sold_out, buy_now)
+        availability()
         all_page.test_click_confirm_button()
 
 
@@ -116,7 +117,7 @@ def switch_tab_to_single_nft(driver):
 
         print("going to availability")
 
-        availability(sold_out_xpath, buy_now_xpath)
+        availability()
 
         driver.close()
         driver.switch_to.window(window_before)
