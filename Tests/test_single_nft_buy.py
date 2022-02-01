@@ -34,3 +34,17 @@ class Test_single_nft(Basetest):
         flag = self.single_nft.is_visible_payment_failed()
         assert flag
 
+    def test_is_visible_buy_now_button(self):
+        self.search = SingleNftBuy(self.driver)
+        flag = self.search.is_visible_buy_now_button()
+        assert flag
+
+    def test_is_visible_not_enough_button(self):
+        self.search = SingleNftBuy(self.driver)
+        flag = self.search.is_visible_not_enough_button()
+        assert flag
+
+    def test_is_visible_sold_out_button(self):
+        self.search = SingleNftBuy(self.driver)
+        flag = self.search.is_visible_sold_out()
+        assert flag
