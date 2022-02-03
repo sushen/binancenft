@@ -1,10 +1,11 @@
 import time
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from Bots.AllPageBot import AllPageBot
 from Pages.NftCollectionPage import NftCollectionPage
-from selenium.webdriver.common.keys import Keys
+
 
 # Time Counting
 from Pages.SingleNftBuy import SingleNftBuy
@@ -30,7 +31,7 @@ all_page.driver.get(NftCollectionPage.collection_link)
 print(input("Filter done:"))
 
 
-sold_out_xpath = "//button[normalize-space()='Sold Out']"
+# sold_out_xpath = "//button[normalize-space()='Sold Out']"
 
 buy_now_xpath = "//button[contains(text(),'Buy Now')]"
 
@@ -42,42 +43,40 @@ payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
 
 
 def availability():
-    # print(input("Check availability:"))
-    print("checking availability")
-    if all_page.test_is_visible_buy_now_button():
+    try:
         all_page.test_click_buy_now()
         print("clicked buy now")
+        print("checking availability")
         print("going to eligibility")
-        eligibility(not_enough_xpath)
-    elif all_page.test_is_visible_sold_out_button():
+        eligibility()
+    except:
         print("sold out")
-        pass
 
 
-def eligibility(not_enough):
-    # print(input("Check eligibility:"))
-    time.sleep(2)
-    if all_page.test_is_visible_not_enough_button():
-        print("eligibility failed")
-    else:
+def eligibility():
+    try:
         print("eligibility passed")
         all_page.test_click_confirm_button()
-        success = all_page.driver.find_elements(By.XPATH, success_paid_xpath)
-        payment_failed = all_page.driver.find_elements(By.XPATH, payment_failed_xpath)
-        after_payment(success, payment_failed)
-        pass
+        after_payment()
+    except:
+        print("eligibility failed")
 
 
-def after_payment(success, payment_failed):
-    if len(success) == 1:
-        # print(success[0].text)
-        print("This function working")
-    elif len(payment_failed) == 1:
-        print(payment_failed[0].text)
+def after_payment():
+    try:
+        print("checking status")
+        if WebDriverWait(all_page.driver, 5).until(EC.visibility_of_element_located((By.XPATH, success_paid_xpath))):
+            print("payment successful")
+    except:
+        print("payment failed")
         all_page.test_click_return_button()
-        buy_now = all_page.driver.find_elements(By.XPATH, buy_now_xpath)
-        sold_out = all_page.driver.find_elements(By.XPATH, sold_out_xpath)
-        availability()
+        try:
+            all_page.test_click_buy_now()
+            print("clicked buy now")
+            print("checking availability")
+            print("going to eligibility")
+        except:
+            print("sold out")
         all_page.test_click_confirm_button()
 
 
