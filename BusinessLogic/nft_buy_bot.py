@@ -42,6 +42,7 @@ success_paid_xpath = "//div[@class='css-57wjep']"
 payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
 
 
+
 def availability():
     try:
         all_page.test_click_buy_now()
@@ -183,3 +184,5 @@ print("\nThis Script End " + time.ctime())
 totalRunningTime = EndTime - StartTime
 print("This Script is running for " + str(int(totalRunningTime)) + " Second. or\n")
 print("This Script is running for " + str(int(totalRunningTime / 60)) + " Minutes.")
+print("This Script is running for " + str(int(totalRunningTime / 60)) + " Minutes.")
+
