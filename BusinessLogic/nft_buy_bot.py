@@ -41,10 +41,9 @@ success_paid_xpath = "//div[@class='css-57wjep']"
 
 payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
 
-def availability(sold_out, buy_now):
-    # print(input("Check availability:"))
-    print(buy_now)
 
+
+def availability():
     try:
         all_page.test_click_buy_now()
         print("clicked buy now")
@@ -53,7 +52,6 @@ def availability(sold_out, buy_now):
         eligibility()
     except:
         print("sold out")
-
 
 def eligibility():
     try:
@@ -185,5 +183,6 @@ EndTime = time.time()
 print("\nThis Script End " + time.ctime())
 totalRunningTime = EndTime - StartTime
 print("This Script is running for " + str(int(totalRunningTime)) + " Second. or\n")
+print("This Script is running for " + str(int(totalRunningTime / 60)) + " Minutes.")
 print("This Script is running for " + str(int(totalRunningTime / 60)) + " Minutes.")
 
