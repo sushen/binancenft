@@ -44,9 +44,9 @@ payment_failed_xpath = "//h6[contains(text(), 'Payment failed')]"
 def availability(sold_out, buy_now):
     # print(input("Check availability:"))
     print(buy_now)
-    if all_page.driver.find_elements(By.XPATH, buy_now):
+
+    try:
         all_page.test_click_buy_now()
-        # TODO : It didn't buy with continues loop
         print("clicked buy now")
         print("checking availability")
         print("going to eligibility")
