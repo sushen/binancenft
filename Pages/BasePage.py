@@ -31,12 +31,12 @@ class BasePage:
         return element.text
 
     def get_all_elements(self, by_locator):
-        elements = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_all_elements_located(by_locator))
+        elements = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_all_elements_located(by_locator)).is_displayed()
         return elements
 
     def is_visible(self, by_locator):
-        element = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(by_locator))
-        return bool(element)
+        element = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(by_locator)).is_displayed()
+        return element
 
     def are_visible(self, by_locator):
         elements = WebDriverWait(self.driver, wait_time).until(EC.visibility_of_all_elements_located(by_locator))
